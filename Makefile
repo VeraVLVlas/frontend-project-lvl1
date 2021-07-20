@@ -1,11 +1,11 @@
 # команда полезна при клонировании первого репозитория, (или после удаления node_modules).
 install:
-  npm ci
+	npm ci
 
 # команда запустит игру
 brain-games:
-  node bin/brain-games.js
+	node bin/brain-games.js
 
 # команда имитирует процесс публикации пакета
 publish:
-  npm publish --dry-run
+	npm publish --dry-run
