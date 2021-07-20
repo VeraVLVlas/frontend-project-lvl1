@@ -6,6 +6,6 @@ install:
 brain-games:
   node bin/brain-games.js
 
-# команда покажет информацию о файле
+# команда имитирует процесс публикации пакета
 publish:
   npm publish --dry-run
