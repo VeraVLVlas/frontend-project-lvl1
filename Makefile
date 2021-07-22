@@ -9,3 +9,7 @@ brain-games:
 # команда имитирует процесс публикации пакета
 publish:
 	npm publish --dry-run
+
+# команда запустит eslint
+lint:
+		npx eslint .
