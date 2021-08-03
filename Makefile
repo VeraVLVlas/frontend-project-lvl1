@@ -6,6 +6,10 @@ install:
 brain-games:
 	node bin/brain-games.js
 
+# команда запустит игру с числами
+brain-even:
+		node bin/brain-even.js
+
 # команда имитирует процесс публикации пакета
 publish:
 	npm publish --dry-run
