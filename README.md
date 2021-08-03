@@ -6,3 +6,6 @@
 </a>
 
 [![Actions Status](https://github.com/VeraVLVlas/frontend-project-lvl1/actions/workflows//main.yml/badge.svg)](https://github.com/VeraVLVlas/frontend-project-lvl1/blob/main/.github/workflows/main.yml)
+
+#An example of installing a package, starting a game, winning and losing a player
+<a href='https://asciinema.org/a/5HOLw2wr0KWmUFit9WLlwWlOG'>watch</a>
