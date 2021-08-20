@@ -10,6 +10,10 @@ brain-games:
 brain-even:
 		node bin/brain-even.js
 
+# команда запустит игру 'калькулятор'
+brain-calc:
+		node bin/brain-calc.js
+
 # команда имитирует процесс публикации пакета
 publish:
 	npm publish --dry-run
