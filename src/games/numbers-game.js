@@ -1,24 +1,15 @@
 import readlineSync from 'readline-sync';
-import { nameUser } from '../cli.js';
+import { nameUser, generatesNumber, MAX_NUMBER_ROUNDS } from '../index.js';
 
 let counter = 0;
-
-const willShowRulesGame = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-};
-
-const generatesNumber = () => {
-  const MAX_NUMBER = 100;
-  const generatedNumber = Math.ceil(Math.random() * MAX_NUMBER);
-
-  return generatedNumber;
-};
+export default 'Answer "yes" if the number is even, otherwise answer "no".';
 
 // eslint-disable-next-line consistent-return
-const parityСheck = () => {
-  if (counter === 3) { return console.log(`Congratulations, ${nameUser}!`); }
+export const parityСheck = () => {
+  if (counter === MAX_NUMBER_ROUNDS) { return console.log(`Congratulations, ${nameUser}!`); }
 
   const number = generatesNumber();
+
   console.log(`Question: ${number}`);
   const userResponse = readlineSync.question('Your answer: ');
 
@@ -30,5 +21,3 @@ const parityСheck = () => {
     console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.Let's try again, ${nameUser}!`);
   }
 };
-
-export { willShowRulesGame, parityСheck };

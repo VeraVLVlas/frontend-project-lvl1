@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import greetsUser from '../src/cli.js';
-import { willShowRulesGame, parityСheck } from '../src/games/numbers-game.js';
+import { greetsUser, willShowRulesGame } from '../src/index.js';
+import ruleGame, { parityСheck } from '../src/games/numbers-game.js';
 
 greetsUser();
-willShowRulesGame();
+willShowRulesGame(ruleGame);
 parityСheck();
