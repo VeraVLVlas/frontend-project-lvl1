@@ -14,3 +14,6 @@ Game: "Parity check"
 
 Game: "Calculator"
 <a href='https://asciinema.org/a/xhNzDgmBoaKYU8sLnXBZKhPle'>watch</a>
+
+Game: "GCD two numbers"
+<a href='https://asciinema.org/a/y5sI9004NP3THYVLKikCqpVBO'>watch</a>
