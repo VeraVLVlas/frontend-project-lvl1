@@ -18,6 +18,10 @@ brain-calc:
 brain-gcd:
 		node bin/brain-gcd.js
 
+# команда запустит игру 'Арифметическая прогрессия'
+brain-progression:
+		node bin/brain-progression.js
+
 # команда имитирует процесс публикации пакета
 publish:
 	npm publish --dry-run
