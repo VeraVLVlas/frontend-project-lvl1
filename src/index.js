@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 export const MAX_NUMBER_ROUNDS = 3;
 
 // eslint-disable-next-line import/no-mutable-exports
-let nameUser = '';
+export let nameUser = '';
 
 export const promptsForUsername = () => {
   const name = readlineSync.question('May I have your name?');
@@ -30,4 +30,8 @@ export const generatesNumber = () => {
   return generatedNumber;
 };
 
-export { nameUser };
+export const generatesRandomSign = (value) => {
+  const generatedNumber = Math.ceil(Math.random() * value.length - 1);
+
+  return value[generatedNumber];
+};

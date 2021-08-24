@@ -1,15 +1,11 @@
 import readlineSync from 'readline-sync';
-import { nameUser, generatesNumber, MAX_NUMBER_ROUNDS } from '../index.js';
+import {
+  nameUser, generatesNumber, MAX_NUMBER_ROUNDS, generatesRandomSign,
+} from '../index.js';
 
 export default 'What is the result of the expression?';
 let counter = 0;
-
-const generatesRandomSign = () => {
-  const randomSign = ['+', '-', '*'];
-  const generatedNumber = Math.ceil(Math.random() * randomSign.length - 1);
-
-  return randomSign[generatedNumber];
-};
+const randomSign = ['+', '-', '*'];
 
 // eslint-disable-next-line consistent-return
 export const generateRandomMathExpression = () => {
@@ -18,7 +14,7 @@ export const generateRandomMathExpression = () => {
   let result = 0;
   const number1 = generatesNumber();
   const number2 = generatesNumber();
-  const sign = generatesRandomSign();
+  const sign = generatesRandomSign(randomSign);
 
   console.log(`Question: ${number1} ${sign} ${number2}`);
   switch (sign) {
