@@ -17,3 +17,6 @@ Game: "Calculator"
 
 Game: "GCD two numbers"
 <a href='https://asciinema.org/a/y5sI9004NP3THYVLKikCqpVBO'>watch</a>
+
+Game: "Arithmetic progression"
+<a href='https://asciinema.org/a/GOvrc3CQGNyazE0Q8NRLO32Fc'>watch</a>
