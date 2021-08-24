@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 
 export const MAX_NUMBER_ROUNDS = 3;
+export const MAX_NUMBER = 100;
 
 // eslint-disable-next-line import/no-mutable-exports
 export let nameUser = '';
@@ -23,9 +24,8 @@ export const willShowRulesGame = (value) => {
   console.log(value);
 };
 
-export const generatesNumber = () => {
-  const MAX_NUMBER = 100;
-  const generatedNumber = Math.ceil(Math.random() * MAX_NUMBER);
+export const generatesNumber = (value) => {
+  const generatedNumber = Math.ceil(Math.random() * value);
 
   return generatedNumber;
 };

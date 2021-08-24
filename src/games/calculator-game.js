@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import {
-  nameUser, generatesNumber, MAX_NUMBER_ROUNDS, generatesRandomSign,
+  nameUser, generatesNumber, MAX_NUMBER_ROUNDS, MAX_NUMBER, generatesRandomSign,
 } from '../index.js';
 
 export default 'What is the result of the expression?';
@@ -12,8 +12,8 @@ export const generateRandomMathExpression = () => {
   if (counter === MAX_NUMBER_ROUNDS) { return console.log(`Congratulations, ${nameUser}!`); }
 
   let result = 0;
-  const number1 = generatesNumber();
-  const number2 = generatesNumber();
+  const number1 = generatesNumber(MAX_NUMBER);
+  const number2 = generatesNumber(MAX_NUMBER);
   const sign = generatesRandomSign(randomSign);
 
   console.log(`Question: ${number1} ${sign} ${number2}`);

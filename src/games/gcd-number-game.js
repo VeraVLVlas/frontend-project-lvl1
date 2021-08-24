@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
-import { nameUser, generatesNumber, MAX_NUMBER_ROUNDS } from '../index.js';
+import {
+  nameUser, generatesNumber, MAX_NUMBER_ROUNDS, MAX_NUMBER,
+} from '../index.js';
 
 export default 'Find the greatest common divisor of given numbers.';
 let counter = 0;
@@ -8,8 +10,8 @@ let counter = 0;
 export const findsGreatestCommonDivisorNumber = () => {
   if (counter === MAX_NUMBER_ROUNDS) { return console.log(`Congratulations, ${nameUser}!`); }
 
-  const number1 = generatesNumber();
-  const number2 = generatesNumber();
+  const number1 = generatesNumber(MAX_NUMBER);
+  const number2 = generatesNumber(MAX_NUMBER);
   console.log(`Question: ${number1} ${number2}`);
   const userResponse = readlineSync.question('Your answer: ');
 
