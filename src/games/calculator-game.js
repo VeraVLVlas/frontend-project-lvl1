@@ -3,7 +3,7 @@ import {
   nameUser, generatesNumber, MAX_NUMBER_ROUNDS, MAX_NUMBER, generatesRandomSign,
 } from '../index.js';
 
-export default 'What is the result of the expression?';
+export default 'What is the correctAnswer of the expression?';
 let counter = 0;
 const randomSign = ['+', '-', '*'];
 
@@ -11,33 +11,34 @@ const randomSign = ['+', '-', '*'];
 export const generateRandomMathExpression = () => {
   if (counter === MAX_NUMBER_ROUNDS) { return console.log(`Congratulations, ${nameUser}!`); }
 
-  let result = 0;
   const number1 = generatesNumber(MAX_NUMBER);
   const number2 = generatesNumber(MAX_NUMBER);
   const sign = generatesRandomSign(randomSign);
+  let correctAnswer = '';
 
   console.log(`Question: ${number1} ${sign} ${number2}`);
+
   switch (sign) {
     case '+':
-      result = number1 + number2;
+      correctAnswer = number1 + number2;
       break;
     case '-':
-      result = number1 - number2;
+      correctAnswer = number1 - number2;
       break;
     case '*':
-      result = number1 * number2;
+      correctAnswer = number1 * number2;
       break;
     default:
-      result = 0;
+      correctAnswer = 0;
   }
 
   const userResponse = readlineSync.question('Your answer: ');
 
-  if (result.toString() === userResponse) {
+  if (correctAnswer.toString() === userResponse) {
     console.log('Correct!');
     counter += 1;
     generateRandomMathExpression();
   } else {
-    console.log(`'${result}' is wrong answer ;(. Correct answer was 'no'.Let's try again, ${nameUser}!`);
+    console.log(`'${userResponse}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\n Let's try again, ${nameUser}!`);
   }
 };

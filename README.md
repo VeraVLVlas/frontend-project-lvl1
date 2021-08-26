@@ -13,7 +13,7 @@ Game: "Parity check"
 <a href='https://asciinema.org/a/5HOLw2wr0KWmUFit9WLlwWlOG'>watch</a>
 
 Game: "Calculator"
-<a href='https://asciinema.org/a/xhNzDgmBoaKYU8sLnXBZKhPle'>watch</a>
+<a href='https://asciinema.org/a/V1Hk6juWgzNZjHaMmzfrWULxm'>watch</a>
 
 Game: "GCD two numbers"
 <a href='https://asciinema.org/a/y5sI9004NP3THYVLKikCqpVBO'>watch</a>
