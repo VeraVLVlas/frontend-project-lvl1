@@ -22,6 +22,10 @@ brain-gcd:
 brain-progression:
 		node bin/brain-progression.js
 
+# команда запустит игру 'Простое ли число?'
+brain-prime:
+		node bin/brain-prime.js
+
 # команда имитирует процесс публикации пакета
 publish:
 	npm publish --dry-run
