@@ -20,3 +20,6 @@ Game: "GCD two numbers"
 
 Game: "Arithmetic progression"
 <a href='https://asciinema.org/a/GOvrc3CQGNyazE0Q8NRLO32Fc'>watch</a>
+
+Game: "Is it a prime number?"
+<a href='https://asciinema.org/a/ETPUqlA1TbizMnv0poM1IRjSh'>watch</a>
