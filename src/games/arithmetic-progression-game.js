@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
-import { MAX_NUMBER_ROUNDS, nameUser, generatesNumber } from '../index.js';
+import generatesNumber from '../utils.js';
+import { MAX_NUMBER_ROUNDS, nameUser } from '../index.js';
 
 let counter = 0;
 let hiddenNumber = 0;

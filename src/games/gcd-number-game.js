@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
+import generatesNumber from '../utils.js';
 import {
-  nameUser, generatesNumber, MAX_NUMBER_ROUNDS, MAX_NUMBER,
+  nameUser, MAX_NUMBER_ROUNDS, MAX_NUMBER,
 } from '../index.js';
 
 export default 'Find the greatest common divisor of given numbers.';

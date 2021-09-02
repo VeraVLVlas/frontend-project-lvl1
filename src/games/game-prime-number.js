@@ -1,7 +1,8 @@
 /* eslint-disable default-case */
 import readlineSync from 'readline-sync';
+import generatesNumber from '../utils.js';
 import {
-  nameUser, generatesNumber, MAX_NUMBER_ROUNDS, MAX_NUMBER,
+  nameUser, MAX_NUMBER_ROUNDS, MAX_NUMBER,
 } from '../index.js';
 
 export default 'Answer "yes" if given number is prime. Otherwise answer "no".';

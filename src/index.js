@@ -6,32 +6,40 @@ export const MAX_NUMBER = 100;
 // eslint-disable-next-line import/no-mutable-exports
 export let nameUser = '';
 
-export const promptsForUsername = () => {
-  const name = readlineSync.question('May I have your name?');
-  return name;
-};
-
 export const greetsUser = () => {
   console.log('Welcome to the Brain Games!');
-  const name = promptsForUsername();
+  const name = readlineSync.question('May I have your name? ');
   nameUser = name;
-  const greeting = console.log(`Hello, ${name}!`);
+  console.log(`Hello, ${name}!`);
 
-  return greeting;
+  return name;
 };
 
 export const willShowRulesGame = (value) => {
   console.log(value);
 };
 
-export const generatesNumber = (value) => {
-  const generatedNumber = Math.ceil(Math.random() * value);
-
-  return generatedNumber;
-};
-
 export const generatesRandomSign = (value) => {
   const generatedNumber = Math.ceil(Math.random() * value.length - 1);
 
   return value[generatedNumber];
+};
+
+export const gameEngine = (rule, expression, answer) => {
+  const name = greetsUser();
+  console.log(rule);
+  for (let i = 1; i <= MAX_NUMBER_ROUNDS; i += 1) {
+    const numericExpression = expression();
+    console.log(`Question: ${numericExpression}`);
+    const userResponse = readlineSync.question('Your answer: ');
+    let correctAnswer = '';
+    correctAnswer = answer(numericExpression);
+
+    if (correctAnswer === userResponse) {
+      console.log('Correct!');
+    } else {
+      return console.log(`'${userResponse}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`);
+    }
+  }
+  return console.log(`Congratulations, ${name}!`);
 };

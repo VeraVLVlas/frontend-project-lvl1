@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
+import generatesNumber from '../utils.js';
 import {
-  nameUser, generatesNumber, MAX_NUMBER_ROUNDS, MAX_NUMBER, generatesRandomSign,
+  nameUser, MAX_NUMBER_ROUNDS, MAX_NUMBER, generatesRandomSign,
 } from '../index.js';
 
 export default 'What is the correctAnswer of the expression?';
