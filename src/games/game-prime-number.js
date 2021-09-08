@@ -1,12 +1,9 @@
-/* eslint-disable default-case */
-import readlineSync from 'readline-sync';
 import generatesNumber from '../utils.js';
-import {
-  nameUser, MAX_NUMBER_ROUNDS, MAX_NUMBER,
-} from '../index.js';
+import { gameEngine, MAX_NUMBER } from '../index.js';
 
-export default 'Answer "yes" if given number is prime. Otherwise answer "no".';
-let counter = 0;
+const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const returnRandomNumber = () => generatesNumber(MAX_NUMBER);
 
 const checkNumberPrime = (num) => {
   let answer = '';
@@ -14,6 +11,7 @@ const checkNumberPrime = (num) => {
   switch (num) {
     case 1: answer = 'no'; break;
     case 2: answer = 'yes'; break;
+    default: answer = '';
   }
 
   for (let i = 2; i < num; i += 1) {
@@ -26,21 +24,6 @@ const checkNumberPrime = (num) => {
   return answer;
 };
 
-// eslint-disable-next-line consistent-return
-export const gameEngine = () => {
-  if (counter === MAX_NUMBER_ROUNDS) { return console.log(`Congratulations, ${nameUser}!`); }
-
-  const number = generatesNumber(MAX_NUMBER);
-
-  console.log(`Question: ${number}`);
-  const result = checkNumberPrime(number);
-  const userResponse = readlineSync.question('Your answer: ');
-
-  if (userResponse === result) {
-    console.log('Correct!');
-    counter += 1;
-    gameEngine();
-  } else {
-    console.log(`'${userResponse}' is wrong answer ;(. Correct answer was '${result}'.Let's try again, ${nameUser}!`);
-  }
+export default () => {
+  gameEngine(ruleGame, returnRandomNumber, checkNumberPrime);
 };
