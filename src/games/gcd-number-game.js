@@ -1,34 +1,28 @@
-import readlineSync from 'readline-sync';
 import generatesNumber from '../utils.js';
-import {
-  nameUser, MAX_NUMBER_ROUNDS, MAX_NUMBER,
-} from '../index.js';
+import { gameEngine, MAX_NUMBER } from '../index.js';
 
-export default 'Find the greatest common divisor of given numbers.';
-let counter = 0;
+const ruleGame = 'Find the greatest common divisor of given numbers.';
 
-// eslint-disable-next-line consistent-return
-export const findsGreatestCommonDivisorNumber = () => {
-  if (counter === MAX_NUMBER_ROUNDS) { return console.log(`Congratulations, ${nameUser}!`); }
+const returnArrayData = () => {
+  const data = [];
+  const randomNumber = [];
+  const num1 = generatesNumber(MAX_NUMBER);
+  randomNumber.push(num1);
+  const num2 = generatesNumber(MAX_NUMBER);
+  randomNumber.push(num2);
+  data.push(randomNumber);
 
-  const number1 = generatesNumber(MAX_NUMBER);
-  const number2 = generatesNumber(MAX_NUMBER);
-  console.log(`Question: ${number1} ${number2}`);
-  const userResponse = readlineSync.question('Your answer: ');
+  const countGcdTwoNumbers = (value1, value2) => {
+    if (!value2) { return value1; }
 
-  const countGcdTwoNumbers = (num1, num2) => {
-    if (!num2) { return num1; }
-
-    return countGcdTwoNumbers(num2, num1 % num2);
+    return countGcdTwoNumbers(value2, value1 % value2);
   };
+  const answer = countGcdTwoNumbers(num1, num2);
+  data.push(answer.toString());
 
-  const result = countGcdTwoNumbers(number1, number2);
+  return data;
+};
 
-  if (result.toString() === userResponse) {
-    console.log('Correct!');
-    counter += 1;
-    findsGreatestCommonDivisorNumber();
-  } else {
-    console.log(`'${userResponse}' is wrong answer ;(. Correct answer was ${result}.Let's try again, ${nameUser}!`);
-  }
+export default () => {
+  gameEngine(ruleGame, returnArrayData);
 };

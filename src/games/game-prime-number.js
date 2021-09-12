@@ -3,11 +3,14 @@ import { gameEngine, MAX_NUMBER } from '../index.js';
 
 const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const returnRandomNumber = () => generatesNumber(MAX_NUMBER);
+const returnArrayData = () => {
+  const data = [];
+  const randomNumber = [];
+  const num = generatesNumber(MAX_NUMBER);
+  randomNumber.push(num);
+  data.push(randomNumber);
 
-const checkNumberPrime = (num) => {
   let answer = '';
-
   switch (num) {
     case 1: answer = 'no'; break;
     case 2: answer = 'yes'; break;
@@ -21,9 +24,11 @@ const checkNumberPrime = (num) => {
     }
     answer = 'yes';
   }
-  return answer;
+  data.push(answer);
+
+  return data;
 };
 
 export default () => {
-  gameEngine(ruleGame, returnRandomNumber, checkNumberPrime);
+  gameEngine(ruleGame, returnArrayData);
 };

@@ -3,17 +3,21 @@ import { gameEngine, MAX_NUMBER } from '../index.js';
 
 const ruleGame = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const returnRandomNumber = () => generatesNumber(MAX_NUMBER);
+const returnArrayData = () => {
+  const data = [];
+  const randomNumber = [];
+  const num = generatesNumber(MAX_NUMBER);
+  randomNumber.push(num);
+  data.push(randomNumber);
 
-const returnCorrectAnswer = (number) => {
   let answer = '';
+  if (num % 2 === 0) { answer = 'yes'; }
+  if (num % 2 !== 0) { answer = 'no'; }
+  data.push(answer);
 
-  if (number % 2 === 0) { answer = 'yes'; }
-  if (number % 2 !== 0) { answer = 'no'; }
-
-  return answer;
+  return data;
 };
 
 export default () => {
-  gameEngine(ruleGame, returnRandomNumber, returnCorrectAnswer);
+  gameEngine(ruleGame, returnArrayData);
 };

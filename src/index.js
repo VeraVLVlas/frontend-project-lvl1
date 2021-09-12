@@ -2,6 +2,7 @@ import readlineSync from 'readline-sync';
 
 export const MAX_NUMBER_ROUNDS = 3;
 export const MAX_NUMBER = 100;
+export const MAX_NUMBER_DIFFERENCE = 15;
 
 // eslint-disable-next-line import/no-mutable-exports
 export let nameUser = '';
@@ -19,21 +20,15 @@ export const willShowRulesGame = (value) => {
   console.log(value);
 };
 
-export const generatesRandomSign = (value) => {
-  const generatedNumber = Math.ceil(Math.random() * value.length - 1);
-
-  return value[generatedNumber];
-};
-
-export const gameEngine = (rule, expression, answer) => {
+export const gameEngine = (rule, expression) => {
   const name = greetsUser();
   console.log(rule);
   for (let i = 1; i <= MAX_NUMBER_ROUNDS; i += 1) {
-    const numericExpression = expression();
+    const generatedExpression = expression();
+    const numericExpression = generatedExpression[0].join(' ');
     console.log(`Question: ${numericExpression}`);
     const userResponse = readlineSync.question('Your answer: ');
-    let correctAnswer = '';
-    correctAnswer = answer(numericExpression);
+    const correctAnswer = generatedExpression[1];
 
     if (correctAnswer === userResponse) {
       console.log('Correct!');
