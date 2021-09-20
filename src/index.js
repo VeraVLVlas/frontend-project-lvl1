@@ -1,31 +1,14 @@
 import readlineSync from 'readline-sync';
+import greetsUser from './cli.js';
 
 export const MAX_NUMBER_ROUNDS = 3;
-export const MAX_NUMBER = 100;
-export const MAX_NUMBER_DIFFERENCE = 15;
 
-// eslint-disable-next-line import/no-mutable-exports
-export let nameUser = '';
-
-export const greetsUser = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  nameUser = name;
-  console.log(`Hello, ${name}!`);
-
-  return name;
-};
-
-export const willShowRulesGame = (value) => {
-  console.log(value);
-};
-
-export const gameEngine = (rule, expression) => {
+export const gameEngine = (rule, gameData) => {
   const name = greetsUser();
   console.log(rule);
   for (let i = 1; i <= MAX_NUMBER_ROUNDS; i += 1) {
-    const generatedExpression = expression();
-    const numericExpression = generatedExpression[0].join(' ');
+    const generatedExpression = gameData();
+    const numericExpression = generatedExpression[0];
     console.log(`Question: ${numericExpression}`);
     const userResponse = readlineSync.question('Your answer: ');
     const correctAnswer = generatedExpression[1];

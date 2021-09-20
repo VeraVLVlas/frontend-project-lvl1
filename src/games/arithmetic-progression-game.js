@@ -1,33 +1,35 @@
 import generatesNumber from '../utils.js';
-import { gameEngine, MAX_NUMBER_DIFFERENCE } from '../index.js';
+import { gameEngine } from '../index.js';
 
+const MAX_NUMBER_DIFFERENCE = 15;
+const MAX_STEP_PROGRESSION = 9;
+const lengthProgression = [5, 6, 7, 8, 9, 10];
 const ruleGame = 'What number is missing in the progression?';
 
+const getArephmiticProgression = (value1, value2, value3) => {
+  const startingValue = generatesNumber(value1);
+  const step = generatesNumber(value2);
+  const valueLength = value3[generatesNumber(value3.length - 1)];
+  const progression = [];
+  for (let i = 0; i <= valueLength; i += 1) {
+    progression.push(startingValue + step * i);
+  }
+  return progression;
+};
+
 const returnArrayData = () => {
-  const data = [];
-  let hiddenNumber = 0;
-  const randomStrNumber = () => {
-    const randomNumber = generatesNumber(MAX_NUMBER_DIFFERENCE);
-    const variable = [randomNumber];
-    for (let i = 0; i < 9; i += 1) {
-      variable.push(randomNumber + variable[i]);
-    }
-    return variable;
-  };
+  let answer = 0;
 
-  const hideRandomNumber = () => {
-    const stringWithNumbers = randomStrNumber();
-    const randomNumberIndex = generatesNumber(stringWithNumbers.length - 1);
-    hiddenNumber = stringWithNumbers[randomNumberIndex];
-    stringWithNumbers[randomNumberIndex] = '..';
+  const question = getArephmiticProgression(MAX_NUMBER_DIFFERENCE,
+    MAX_STEP_PROGRESSION, lengthProgression);
 
-    return stringWithNumbers;
-  };
-  const arithmeticProgression = hideRandomNumber();
-  data.push(arithmeticProgression);
-  data.push(hiddenNumber.toString());
+  const randomNumberIndex = generatesNumber(question.length - 1);
+  answer = question[randomNumberIndex];
+  question[randomNumberIndex] = '..';
 
-  return data;
+  const questionAnswer = [question.join(' '), answer.toString()];
+
+  return questionAnswer;
 };
 
 export default () => {

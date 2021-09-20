@@ -1,37 +1,37 @@
 import generatesNumber from '../utils.js';
-import { gameEngine, MAX_NUMBER } from '../index.js';
+import { gameEngine } from '../index.js';
 
-const ruleGame = 'What is the correctAnswer of the expression?';
-const randomSign = ['+', '-', '*'];
+const MAX_NUMBER = 100;
+const ruleGame = 'What is the answer of the mathematicalAction?';
+const mathematicalAction = ['+', '-', '*'];
 
-const returnArrayData = () => {
-  const data = [];
-  const mathematicalExpression = [];
-  const num1 = generatesNumber(MAX_NUMBER);
-  mathematicalExpression.push(num1);
-  const sign = randomSign[generatesNumber(randomSign.length - 1)];
-  mathematicalExpression.push(sign);
-  const num2 = generatesNumber(MAX_NUMBER);
-  mathematicalExpression.push(num2);
-  data.push(mathematicalExpression);
-
-  let correctAnswer = '';
+const evaluatesExpression = (sign, num1, num2) => {
+  let answer = '';
   switch (sign) {
     case '+':
-      correctAnswer = num1 + num2;
+      answer = num1 + num2;
       break;
     case '-':
-      correctAnswer = num1 - num2;
+      answer = num1 - num2;
       break;
     case '*':
-      correctAnswer = num1 * num2;
+      answer = num1 * num2;
       break;
     default:
-      correctAnswer = 0;
+      answer = 0;
   }
-  data.push(correctAnswer.toString());
+  return answer;
+};
 
-  return data;
+const returnArrayData = () => {
+  const num1 = generatesNumber(MAX_NUMBER);
+  const sign = mathematicalAction[generatesNumber(mathematicalAction.length - 1)];
+  const num2 = generatesNumber(MAX_NUMBER);
+  const question = [num1, sign, num2];
+  const answer = evaluatesExpression(sign, num1, num2);
+  const questionAnswer = [question.join(' '), answer.toString()];
+
+  return questionAnswer;
 };
 
 export default () => {

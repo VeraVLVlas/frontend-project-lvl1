@@ -1,32 +1,27 @@
 import generatesNumber from '../utils.js';
-import { gameEngine, MAX_NUMBER } from '../index.js';
+import { gameEngine } from '../index.js';
 
+const MAX_NUMBER = 100;
 const ruleGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const returnArrayData = () => {
-  const data = [];
-  const randomNumber = [];
-  const num = generatesNumber(MAX_NUMBER);
-  randomNumber.push(num);
-  data.push(randomNumber);
+const isPrime = (value) => {
+  if (value === 1) { return 'no'; }
+  if (value === 2) { return 'yes'; }
 
-  let answer = '';
-  switch (num) {
-    case 1: answer = 'no'; break;
-    case 2: answer = 'yes'; break;
-    default: answer = '';
-  }
-
-  for (let i = 2; i < num; i += 1) {
-    if (num % i === 0) {
-      answer = 'no';
-      break;
+  for (let i = 2; i < value; i += 1) {
+    if (value % i === 0) {
+      return 'no';
     }
-    answer = 'yes';
   }
-  data.push(answer);
+  return 'yes';
+};
 
-  return data;
+const returnArrayData = () => {
+  const question = generatesNumber(MAX_NUMBER);
+  const answer = isPrime(question);
+  const questionAnswer = [question, answer];
+
+  return questionAnswer;
 };
 
 export default () => {
