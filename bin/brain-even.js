@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import parityСheck from '../src/games/numbers-game.js';
+import parityСheck from '../src/games/brain-even.js';
 
 parityСheck();

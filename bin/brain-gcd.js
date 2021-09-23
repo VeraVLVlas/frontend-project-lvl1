@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import findsGreatestCommonDivisorNumber from '../src/games/gcd-number-game.js';
+import findsGreatestCommonDivisorNumber from '../src/games/brain-gcd.js';
 
 findsGreatestCommonDivisorNumber();

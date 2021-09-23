@@ -1,7 +1,8 @@
 import generatesNumber from '../utils.js';
 import { gameEngine } from '../index.js';
 
-const MAX_NUMBER = 100;
+const MAX_NUMBER = 50;
+const MIN_NUMBER = 1;
 const ruleGame = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (value1, value2) => {
@@ -11,14 +12,14 @@ const getGcd = (value1, value2) => {
 };
 
 const getGameData = () => {
-  const num1 = generatesNumber(MAX_NUMBER);
-  const num2 = generatesNumber(MAX_NUMBER);
+  const num1 = generatesNumber(MIN_NUMBER, MAX_NUMBER);
+  const num2 = generatesNumber(MIN_NUMBER, MAX_NUMBER);
   const question = [num1, num2];
 
   const answer = getGcd(num1, num2);
-  const questionAnswer = [question.join(' '), answer.toString()];
+  const gameData = [question.join(' '), answer.toString()];
 
-  return questionAnswer;
+  return gameData;
 };
 
 export default () => {

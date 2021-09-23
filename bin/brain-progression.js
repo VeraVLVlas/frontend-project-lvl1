@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import arithmeticProgression from '../src/games/arithmetic-progression-game.js';
+import arithmeticProgression from '../src/games/brain-progression.js';
 
 arithmeticProgression();
