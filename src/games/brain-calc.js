@@ -6,7 +6,7 @@ const MIN_NUMBER = 0;
 const ruleGame = 'What is the answer of the mathematicalAction?';
 const mathematicalAction = ['+', '-', '*'];
 
-const evaluatesExpression = (sign, num1, num2) => {
+const calculate = (sign, num1, num2) => {
   let answer = '';
   switch (sign) {
     case '+':
@@ -29,7 +29,7 @@ const getGameData = () => {
   const sign = mathematicalAction[generatesNumber(MIN_NUMBER, mathematicalAction.length - 1)];
   const num2 = generatesNumber(MIN_NUMBER, MAX_NUMBER);
   const question = `${num1} ${sign} ${num2}`;
-  const answer = evaluatesExpression(sign, num1, num2);
+  const answer = calculate(sign, num1, num2);
   const gameData = [question, answer.toString()];
 
   return gameData;

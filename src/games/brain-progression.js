@@ -7,21 +7,20 @@ const MAX_STEP = 9;
 const MIN_STEP = 5;
 const ruleGame = 'What number is missing in the progression?';
 
-const getArephmiticProgression = (value1, value2, value3) => {
+const getArephmiticProgression = (length, start, step) => {
   const progression = [];
-  for (let i = 0; i <= value1; i += 1) {
-    progression.push(value2 + value3 * i);
+  for (let i = 0; i <= length; i += 1) {
+    progression.push(start + step * i);
   }
   return progression;
 };
 
 const getGameData = () => {
   let answer = 0;
-  const startingValue = generatesNumber(MIN_NUMBER, MAX_DIFFERENCE);
+  const start = generatesNumber(MIN_NUMBER, MAX_DIFFERENCE);
   const step = generatesNumber(MIN_NUMBER, MAX_STEP);
-  const valueLength = generatesNumber(MIN_STEP, MAX_DIFFERENCE);
-  const question = getArephmiticProgression(valueLength, startingValue,
-    step);
+  const length = generatesNumber(MIN_STEP, MAX_STEP);
+  const question = getArephmiticProgression(length, start, step);
 
   const randomNumberIndex = generatesNumber(MIN_NUMBER, question.length - 1);
   answer = question[randomNumberIndex];
