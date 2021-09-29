@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import greetsUser from '../src/cli.js';
+import runGame from '../src/cli.js';
 
-greetsUser();
+runGame();

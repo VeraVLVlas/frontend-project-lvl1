@@ -1,5 +1,5 @@
 import generatesNumber from '../utils.js';
-import { gameEngine } from '../index.js';
+import { startGameEngine } from '../index.js';
 
 const MAX_NUMBER = 50;
 const MIN_NUMBER = 0;
@@ -36,5 +36,5 @@ const getGameData = () => {
 };
 
 export default () => {
-  gameEngine(ruleGame, getGameData);
+  startGameEngine(ruleGame, getGameData);
 };

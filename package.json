@@ -1,8 +1,8 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/VeraVLVlas/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/VeraVLVlas/frontend-project-lvl1/actions)",
-  "main": "index.js",
+  "description": "console game",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

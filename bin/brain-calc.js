@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import generateRandomMathExpression from '../src/games/brain-calc.js';
+import runGame from '../src/games/brain-calc.js';
 
-generateRandomMathExpression();
+runGame();
